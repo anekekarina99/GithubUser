@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Github</string>
+    <string name="tab_text_1">""</string>
+    <string name="tab_text_2">""</string>
+    <string name="tab_text_3">""</string>
+    <string name="content_tab_home">""</string>
+    <string name="content_tab_profile">Change your Profile here</string>
+    <string name="content_tab_text">This is Tab</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="username">Username</string>
+    <string name="make_image_profile">make_image_profile</string>
+    <string name="name">name</string>
+    <string name="menu2">menu2</string>
+    <string name="search">search</string>
+    <string name="search_hint">Masukan nama</string>
+    <string name="lihat">Lihat</string>
+    <string name="cari_nama">Cari nama</string>
+</resources>

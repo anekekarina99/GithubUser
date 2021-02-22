@@ -34,9 +34,9 @@ class KontakViewModel : ViewModel(){
     /*getData: mengambil data */
     fun getData(context : Context){
        // binding.progressBar.visibility = View.VISIBLE
-        client.addHeader("Authorization", apiKey)
+        client.addHeader("Authorization","token $apiKey")
         client.addHeader("User-Agent", "request")
-        val url = "https://api.github.com/users"
+        val url = "${urlFix}users"
         client.get(url,object: AsyncHttpResponseHandler(){
             override fun onSuccess(
                 statusCode: Int,
@@ -83,9 +83,9 @@ class KontakViewModel : ViewModel(){
 
     /*searchData = melakukan pencarian*/
     fun searchData(q: String, ctx : Context){
-        client.addHeader("Authorization", apiKey)
+        client.addHeader("Authorization", "token $apiKey")
         client.addHeader("User-Agent", "request")
-        val urlSearch = "https://api.github.com/search/users?q=$q"
+        val urlSearch = "${urlFix}search/users?q=$q"
         val listKontakNon = ArrayList<Kontak>()
         client.get(urlSearch, object : AsyncHttpResponseHandler(){
             override fun onSuccess(
@@ -135,9 +135,9 @@ class KontakViewModel : ViewModel(){
     /*getDetail: mengambil data detail */
     fun getDetail(username: String, context: Context) {
         val listKontakNon = ArrayList<Kontak>()
-        client.addHeader("Authorization",apiKey)
+        client.addHeader("Authorization","token $apiKey")
         client.addHeader("User-Agent", "request")
-        val urlDetail = "https://api.github.com/users/$username"
+        val urlDetail = "${urlFix}users/$username"
         client.get(urlDetail, object : AsyncHttpResponseHandler(){
             override fun onSuccess(
                 statusCode: Int,
@@ -180,7 +180,7 @@ class KontakViewModel : ViewModel(){
                     else -> "$statusCode : ${error?.message}"
                 }
                 Log.d(KontakActivity.TAG, errorMessage)
-                Toast.makeText(context, "Error Get Detail on failure : ${errorMessage}", Toast.LENGTH_LONG)
+                Toast.makeText(context, "Error Get Detail on failure : $errorMessage", Toast.LENGTH_LONG)
                     .show()
             }
 

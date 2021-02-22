@@ -35,10 +35,11 @@ class KontakActivity : AppCompatActivity() {
 
         //fungsi fungsi berkaitan
 
+        searchGeneral()
         showRecyclerList()
         getData()
         getList(adapterKontak)
-        searchGeneral()
+
 
     }
 

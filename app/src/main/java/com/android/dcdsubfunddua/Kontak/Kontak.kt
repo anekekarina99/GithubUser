@@ -1,7 +1,7 @@
 package com.android.dcdsubfunddua.Kontak
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Kontak (
@@ -11,7 +11,6 @@ data class Kontak (
     var name: String? = null,
     var avatar: String? = null,
     var company: String? = null,
-    var location: String? = null,
     var repository: String? = null,
     var followers: String? = null,
     var following: String? = null

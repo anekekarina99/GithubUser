@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.dcdsubfunddua.R
 import com.android.dcdsubfunddua.databinding.ActivityKontakBinding
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
 
@@ -20,7 +21,7 @@ class KontakActivity : AppCompatActivity() {
     private lateinit var binding: ActivityKontakBinding
 
     companion object {
-        val TAG = KontakActivity::class.java.simpleName
+        val TAG = KontakActivity::class.java.simpleName!!
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,14 +38,14 @@ class KontakActivity : AppCompatActivity() {
 
         searchGeneral()
         showRecyclerList()
-        getData()
+        getDataGeneral()
         getList(adapterKontak)
 
 
     }
 
     //getData memunculkan data secara detail
-    private fun getData(){
+    private fun getDataGeneral(){
         kontakViewModel.getData(applicationContext)
         showLoading(true)
     }
@@ -52,7 +53,7 @@ class KontakActivity : AppCompatActivity() {
 
     //getlist memunculkan list Kontak
     private fun getList(adapter: KontakAdapter) {
-        kontakViewModel.getListKontak().observe(this, { kontak ->
+        kontakViewModel.getListKontak().observe(this, Observer { kontak ->
             if (kontak != null) {
                 adapterKontak.setData(kontak)
                 showLoading(false)
@@ -74,6 +75,7 @@ class KontakActivity : AppCompatActivity() {
 
         }
     }
+
 
     //show RecyclerView
     private fun showRecyclerList() {

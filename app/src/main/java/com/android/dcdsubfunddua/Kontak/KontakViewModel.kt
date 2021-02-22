@@ -17,7 +17,7 @@ import org.json.JSONObject
 class KontakViewModel : ViewModel(){
 
     //github properties API
-    private val apiKey = "2f63000e631da2beebf76ba457b330308f4ddce5"
+    private val apiKey = "20edcb22596568609fad7daa025e6b3273131333"
     private val urlFix = "https://api.github.com/"
     private val client = AsyncHttpClient()
 
@@ -36,7 +36,7 @@ class KontakViewModel : ViewModel(){
        // binding.progressBar.visibility = View.VISIBLE
         client.addHeader("Authorization", apiKey)
         client.addHeader("User-Agent", "request")
-        val url = "${urlFix}users"
+        val url = "https://api.github.com/users"
         client.get(url,object: AsyncHttpResponseHandler(){
             override fun onSuccess(
                 statusCode: Int,
@@ -85,7 +85,7 @@ class KontakViewModel : ViewModel(){
     fun searchData(q: String, ctx : Context){
         client.addHeader("Authorization", apiKey)
         client.addHeader("User-Agent", "request")
-        val urlSearch = "${urlFix}search/users?q=$q"
+        val urlSearch = "https://api.github.com/search/users?q=$q"
         val listKontakNon = ArrayList<Kontak>()
         client.get(urlSearch, object : AsyncHttpResponseHandler(){
             override fun onSuccess(
@@ -137,7 +137,7 @@ class KontakViewModel : ViewModel(){
         val listKontakNon = ArrayList<Kontak>()
         client.addHeader("Authorization",apiKey)
         client.addHeader("User-Agent", "request")
-        val urlDetail = "${urlFix}users/$username"
+        val urlDetail = "https://api.github.com/users/$username"
         client.get(urlDetail, object : AsyncHttpResponseHandler(){
             override fun onSuccess(
                 statusCode: Int,

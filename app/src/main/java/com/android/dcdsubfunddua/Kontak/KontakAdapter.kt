@@ -1,22 +1,27 @@
 package com.android.dcdsubfunddua.Kontak
 
+
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.android.dcdsubfunddua.R
+import com.android.dcdsubfunddua.databinding.ItemListBinding
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import java.util.*
 
 
 
-class KontakAdapter(private val items: ArrayList<KontakItems>) : RecyclerView.Adapter<KontakAdapter.KontakViewHolder>() {
-/*
-    private val mDataKontak = ArrayList<KontakItems>()
-    lateinit var mcontext: Context
+class KontakAdapter : RecyclerView.Adapter<KontakAdapter.KontakViewHolder>() {
 
-    fun setData(items: ArrayList<KontakItems>) {
-        mDataKontak.clear()
-        mDataKontak.addAll(items)
+    private val mData = ArrayList<Kontak>()
+
+    fun setData(itemsSmt: ArrayList<Kontak>) {
+        mData.clear()
+        mData.addAll(itemsSmt)
         notifyDataSetChanged()
-    } */
-
+    }
 
     private var onItemClickCallback: OnItemClickCallback? = null
 
@@ -28,30 +33,35 @@ class KontakAdapter(private val items: ArrayList<KontakItems>) : RecyclerView.Ad
         parent: ViewGroup,
         viewType: Int,
     ): KontakViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val binding = KontakItemsBinding.inflate(inflater)
-        return KontakViewHolder(binding)
+        val mView = LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
+        return KontakViewHolder(mView)
     }
 
-    override fun onBindViewHolder(holder: KontakViewHolder, position: Int) =holder.bind(items[position])
+    override fun onBindViewHolder(holder: KontakViewHolder, position: Int) {
+        holder.bind(mData[position])
+    }
+
 
 
     interface OnItemClickCallback {
-        fun onItemClicked(dataKontak: KontakItems)
+        fun onItemClicked(data: Kontak)
     }
 
-    override fun getItemCount() = items.size
+    override fun getItemCount() = mData.size
 
-    inner class KontakViewHolder(val binding : ItemKontakBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(kontakItems: KontakItems) {
-            with(binding) {
-                textList.text = kontakItems.username
-                textListName.text = kontakItems.name
-                imgList.text = kontakItems.avatar
-            }
+    inner class KontakViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
+        private val binding = ItemListBinding.bind(itemView)
+        fun bind(kontak: Kontak) {
+            binding.textList.text = kontak.username
+            binding.textListName.text = kontak.name
+            Glide.with(itemView.context)
+                .load(kontak.avatar)
+                .apply(RequestOptions().override(55, 55))
+                .into(binding.imgList)
         }
 
     }
+
 }
 
 

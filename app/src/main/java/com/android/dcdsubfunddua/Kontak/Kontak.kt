@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class KontakItems (
+data class Kontak (
 
     var id : String? = null,
     var username: String? = null,

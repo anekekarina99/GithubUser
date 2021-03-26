@@ -22,13 +22,11 @@ object MapHelper {
                     getString(getColumnIndexOrThrow(FavoriteDatabaseContract.FavoriteColumns.COLUMN_NAME_COMPANY))
                 val locationF =
                     getString(getColumnIndexOrThrow(FavoriteDatabaseContract.FavoriteColumns.COLUMN_NAME_LOCATION))
-                val id =
-                    getInt(getColumnIndexOrThrow(FavoriteDatabaseContract.FavoriteColumns.COLUMN_NAME_ID))
-                myList.add(
+
+                     myList.add(
                     Favorite(
-                        id,
-                        usernameF,
                         nameF,
+                        usernameF,
                         avatarF,
                         companyF,
                         locationF

@@ -27,22 +27,6 @@ class FavoriteAdapter(private val activity: Activity) :
             notifyDataSetChanged()
         }
 
-    fun addFavorite(favor: Favorite) {
-        this.listFavorite.add(favor)
-        notifyItemInserted(this.listFavorite.size - 1)
-    }
-
-    fun updateFavorite(position: Int, favor: Favorite) {
-        this.listFavorite[position] = favor
-        notifyItemChanged(position, favor)
-    }
-
-    fun removeItem(position: Int) {
-        this.listFavorite.removeAt(position)
-        notifyItemRemoved(position)
-        notifyItemRangeChanged(position, this.listFavorite.size)
-    }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteViewHolder {
         val mView =
@@ -59,10 +43,12 @@ class FavoriteAdapter(private val activity: Activity) :
     inner class FavoriteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val bind = ItemFavoriteBinding.bind(itemView)
         fun bind(favor: Favorite) {
-            bind.textList.text = favor.userNameF
-            bind.textListName.text = favor.nameF
+            bind.textList.text = favor.username
+            bind.textListName.text = favor.name
+            bind.textView.text = favor.location
+            bind.textView2.text = favor.company
             Glide.with(itemView.context)
-                .load(favor.avatarF)
+                .load(favor.avatar)
                 .apply(RequestOptions().override(55, 55))
                 .into(bind.imgList)
 

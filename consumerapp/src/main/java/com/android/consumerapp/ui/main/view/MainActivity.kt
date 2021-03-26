@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, KontakActivity::class.java)
+            val intent = Intent(this@MainActivity, KontakActivity::class.java)
             startActivity(intent)
             finish()
         }, 5000)

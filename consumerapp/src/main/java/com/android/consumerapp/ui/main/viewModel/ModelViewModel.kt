@@ -1,7 +1,6 @@
 package com.android.consumerapp.ui.main.viewModel
 
 
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
@@ -23,7 +22,7 @@ import org.json.JSONObject
 class ModelViewModel : ViewModel() {
     //github properties API
     val client = AsyncHttpClient()
-    private val apiKey = "43daeda0326a49c6c1d686f9813ccd60e85e2449"
+    private val apiKey = "2f8751cae854ab166c0414cba7a48cda67ef1b23"
     private val urlFix = "https://api.github.com/"
 
 

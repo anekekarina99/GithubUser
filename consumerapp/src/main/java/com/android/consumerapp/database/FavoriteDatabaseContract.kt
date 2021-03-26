@@ -4,15 +4,14 @@ import android.net.Uri
 import android.provider.BaseColumns
 
 object FavoriteDatabaseContract {
-    const val AUTHORITY = "com.android.dcdsubfunddua.database"
+    const val AUTHORITY = "com.android.consumerapp"
     const val SCHEME = "content"
      class FavoriteColumns : BaseColumns{
         companion object{
-            const val TABLE_NAME = "favorite_user"
-            const val COLUMN_NAME_ID = "id"
+            const val TABLE_NAME = "favorite"
             const val COLUMN_NAME_NAMEF = "name"
             const val COLUMN_NAME_USERNAME = "username"
-            const val COLUMN_NAME_AVATAR_URL = "avatar_url"
+            const val COLUMN_NAME_AVATAR_URL = "avatar"
             const val COLUMN_NAME_COMPANY = "company"
             const val COLUMN_NAME_LOCATION = "location"
 

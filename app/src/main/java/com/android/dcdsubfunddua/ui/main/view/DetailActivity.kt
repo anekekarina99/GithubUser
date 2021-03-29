@@ -194,8 +194,8 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     //ketika database tak digunakan maka klik onDestroy
-    override fun onDestroy() {
+    /*override fun onDestroy() {
         super.onDestroy()
         gitHelper.close()
-    }
+    }*/
 }

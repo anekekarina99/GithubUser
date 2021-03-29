@@ -23,7 +23,7 @@ import org.json.JSONObject
 class ModelViewModel : ViewModel() {
     //github properties API
     val client = AsyncHttpClient()
-    private val apiKey = "2f8751cae854ab166c0414cba7a48cda67ef1b23"
+    private val apiKey = "2f3196b5dd5c9b9d232b9f16c419ac38b84c12be"
     private val urlFix = "https://api.github.com/"
 
 
